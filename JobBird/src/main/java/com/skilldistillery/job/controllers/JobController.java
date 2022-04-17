@@ -44,7 +44,9 @@ public class JobController {
 	
 	@RequestMapping(path = "createJob.do", method = RequestMethod.POST)
 	public String createJob(Job job, Model model) {
+		
 		Job jobAdded = dao.createJob(job);
+		
 		model.addAttribute("job", jobAdded);
 		return "job/show";
 	}

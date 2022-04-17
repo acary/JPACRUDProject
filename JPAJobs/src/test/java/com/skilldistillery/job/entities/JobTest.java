@@ -14,7 +14,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class JobTest {
-	
+
 	private static EntityManagerFactory emf;
 	private EntityManager em;
 	private Job job;
@@ -31,7 +31,7 @@ class JobTest {
 	@BeforeEach
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
-		job = em.find(Job.class, 1);	
+		job = em.find(Job.class, 1);
 	}
 
 	@AfterEach
@@ -42,6 +42,18 @@ class JobTest {
 
 	@Test
 	void test_Job_entity_mapping() {
+
+		if (job == null) {
+			EntityManager em = emf.createEntityManager();
+			em.getTransaction().begin();
+			Job job = new Job();
+			job.setId(100);
+			job.setName("Software Engineer");
+			em.persist(job);
+			em.flush();
+			em.getTransaction().commit();
+		}
+
 		assertNotNull(job);
 		assertEquals("Software Engineer", job.getName());
 	}
