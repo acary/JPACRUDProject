@@ -32,6 +32,18 @@ class JobTest {
 	void setUp() throws Exception {
 		em = emf.createEntityManager();
 		job = em.find(Job.class, 1);
+
+		if (job == null) {
+			em.getTransaction().begin();
+			Job job = new Job();
+			job.setId(1);
+			job.setName("Software Engineer");
+			em.persist(job);
+			em.flush();
+			em.getTransaction().commit();
+		}
+
+		job = em.find(Job.class, 1);
 	}
 
 	@AfterEach
@@ -42,18 +54,6 @@ class JobTest {
 
 	@Test
 	void test_Job_entity_mapping() {
-
-		if (job == null) {
-			EntityManager em = emf.createEntityManager();
-			em.getTransaction().begin();
-			Job job = new Job();
-			job.setId(1);
-			job.setName("Software Engineer");
-			em.persist(job);
-			em.flush();
-			em.getTransaction().commit();
-		}
-
 		assertNotNull(job);
 		assertEquals("Software Engineer", job.getName());
 	}
