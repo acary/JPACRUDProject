@@ -26,7 +26,7 @@
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Add New</a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="all.do">Job</a></li>
+								<li><a class="dropdown-item" href="createJob.do">Job</a></li>
 							</ul></li>
 					</ul>
 				</div>

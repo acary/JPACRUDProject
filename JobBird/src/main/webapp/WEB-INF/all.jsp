@@ -18,8 +18,8 @@
 		<h1>All Jobs</h1>
 
 		<form action="getJob.do" method="GET">
-			Job ID: <input type="text" name="jid" /> <input type="submit"
-				value="Show Job" />
+			<label for="jid" class="form-label">Job ID </label><input type="text" name="jid" class="form-control form-control-lg" /> 
+			<input type="submit" value="Search Jobs" class="btn btn-primary m-2"/>
 		</form>
 
 		<br>

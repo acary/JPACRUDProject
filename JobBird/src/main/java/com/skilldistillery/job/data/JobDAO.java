@@ -8,4 +8,6 @@ public interface JobDAO {
 	Job findById(int jobId);
 
 	List<Job> findAll();
+	
+	public Job create(Job job);
 }
