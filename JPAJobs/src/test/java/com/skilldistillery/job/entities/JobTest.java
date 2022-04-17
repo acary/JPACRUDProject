@@ -47,7 +47,7 @@ class JobTest {
 			EntityManager em = emf.createEntityManager();
 			em.getTransaction().begin();
 			Job job = new Job();
-			job.setId(100);
+			job.setId(1);
 			job.setName("Software Engineer");
 			em.persist(job);
 			em.flush();
