@@ -9,5 +9,7 @@ public interface JobDAO {
 
 	List<Job> findAll();
 	
-	public Job create(Job job);
+	public Job createJob(Job job);
+	
+	public int updateJob(Job job);
 }

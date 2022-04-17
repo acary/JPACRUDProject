@@ -44,8 +44,25 @@ public class JobController {
 	
 	@RequestMapping(path = "createJob.do", method = RequestMethod.POST)
 	public String createJob(Job job, Model model) {
-		Job jobAdded = dao.create(job);
+		Job jobAdded = dao.createJob(job);
 		model.addAttribute("job", jobAdded);
+		return "job/show";
+	}
+	
+	@RequestMapping(path = "updateJob.do", method = RequestMethod.GET)
+	public String startUpdateJob(Integer jid, Model model) {
+		Job job = dao.findById(jid);
+		model.addAttribute("job", job);
+		return "job/update";
+	}
+	
+	@RequestMapping(path = "updateJob.do", params= {"jid", "name"}, method = RequestMethod.POST)
+	public String updateJob(String jid, String name, Model model) {
+		Integer jobId = Integer.valueOf(jid);
+		Job job = dao.findById(jobId);
+		job.setName(name);
+		dao.updateJob(job);
+		model.addAttribute("job", job);
 		return "job/show";
 	}
 

@@ -33,12 +33,32 @@ public class JobDaoJpaImpl implements JobDAO {
 	}
 
 	@Override
-	public Job create(Job job) {
+	public Job createJob(Job job) {
 		EntityManager em = emf.createEntityManager();
 		em.getTransaction().begin();
 		em.persist(job);
 		em.flush();
 		em.getTransaction().commit();
 		return job;
+	}
+	
+	@Override
+	public int updateJob(Job job) {
+		int count = 0;
+		EntityManager em = emf.createEntityManager();
+		
+		String jpql =
+		  "UPDATE Job j SET name = j.name WHERE id = :id";
+		
+		em.getTransaction().begin();
+		
+		count = em.createQuery(jpql)
+				.setParameter("id", job.getId())
+				.executeUpdate();
+		
+		em.getTransaction().commit();
+		em.close();
+		
+		return count;
 	}
 }
