@@ -16,8 +16,8 @@
 				<ul class="nav flex-column">
 					<li class="nav-item mb-2"><a href="all.do"
 						class="nav-link p-0 text-muted">Job by ID</a></li>
-					<li class="nav-item mb-2"><a href="all.do"
-						class="nav-link p-0 text-muted">Job by Keyword</a></li>
+					<!-- <li class="nav-item mb-2"><a href="all.do"
+						class="nav-link p-0 text-muted">Job by Keyword</a></li> -->
 				</ul>
 			</div>
 

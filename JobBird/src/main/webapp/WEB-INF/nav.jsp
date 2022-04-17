@@ -18,8 +18,8 @@
 								Search </a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<li><a class="dropdown-item" href="all.do">Job By ID</a></li>
-								<li><a class="dropdown-item" href="all.do">Job By
-										Keyword</a></li>
+								<!-- <li><a class="dropdown-item" href="all.do">Job By
+										Keyword</a></li> -->
 							</ul></li>
 						<li class="nav-item dropdown"><a
 							class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
