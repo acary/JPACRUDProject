@@ -15,7 +15,7 @@ import com.skilldistillery.job.entities.Job;
 @Service
 @Transactional
 public class JobDaoJpaImpl implements JobDAO {
-	
+
 	private static EntityManagerFactory emf = Persistence.createEntityManagerFactory("JPAJobs");
 
 	@PersistenceContext
@@ -41,24 +41,32 @@ public class JobDaoJpaImpl implements JobDAO {
 		em.getTransaction().commit();
 		return job;
 	}
-	
+
 	@Override
 	public int updateJob(Job job) {
 		int count = 0;
 		EntityManager em = emf.createEntityManager();
-		
-		String jpql =
-		  "UPDATE Job j SET name = j.name WHERE id = :id";
-		
+		String jpql = "UPDATE Job j SET name = j.name WHERE id = :id";
 		em.getTransaction().begin();
-		
-		count = em.createQuery(jpql)
-				.setParameter("id", job.getId())
-				.executeUpdate();
-		
+		count = em.createQuery(jpql).setParameter("id", job.getId()).executeUpdate();
 		em.getTransaction().commit();
 		em.close();
-		
 		return count;
+	}
+
+	@Override
+	public boolean deleteJob(int jid) {
+		boolean isDeleted = false;
+		EntityManager em = emf.createEntityManager();
+		em.getTransaction().begin();
+		Job job = em.find(Job.class, jid);
+		if (job != null) {
+			em.remove(job);
+		}
+//		em.flush();
+		isDeleted = !em.contains(job);
+		em.getTransaction().commit();
+		em.close();
+		return isDeleted;
 	}
 }

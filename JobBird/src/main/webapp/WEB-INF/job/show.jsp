@@ -19,6 +19,7 @@
 			<h5>${job.name}</h5>
 			<p>${job.id}</p>
 			<p><a href="updateJob.do?jid=${job.id}">Update</a></p>
+			<p><a href="deleteJob.do?jid=${job.id}">Delete</a></p>
 		</div>
 	</div>
 

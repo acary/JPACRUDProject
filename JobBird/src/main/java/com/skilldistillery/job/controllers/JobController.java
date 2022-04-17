@@ -65,5 +65,15 @@ public class JobController {
 		model.addAttribute("job", job);
 		return "job/show";
 	}
+	
+	@RequestMapping(path = "deleteJob.do", params= {"jid"}, method = RequestMethod.GET)
+	public String deleteJob(String jid, Model model) {
+		Integer jobId = Integer.valueOf(jid);
+		Job job = dao.findById(jobId);
+		if (job != null) {
+			dao.deleteJob(job.getId());
+		}
+		return "redirect:all";
+	}
 
 }
