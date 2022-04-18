@@ -27,7 +27,7 @@
 				<p class="lead">Search our job postings, add new jobs and more!</p>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-start">
 					<a href="searchKeyword.do"><button type="button"
-							class="btn btn-primary btn-lg px-4 gap-3">Search</button></a> <a
+							class="btn btn-primary btn-lg px-4 gap-3">Search Jobs</button></a> <a
 						href="createJob.do"><button type="button"
 							class="btn btn-outline-secondary btn-lg px-4">Add New</button></a>
 				</div>
