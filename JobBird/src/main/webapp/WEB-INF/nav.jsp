@@ -3,7 +3,7 @@
 		<nav class="navbar navbar-expand-lg navbar-light"
 			style="background-color: #e3f2fd;">
 			<div class="container-fluid">
-				<a class="navbar-brand" href="/">JobBird</a>
+				<a class="navbar-brand" href="home.do">JobBird</a>
 				<button class="navbar-toggler" type="button"
 					data-bs-toggle="collapse" data-bs-target="#navbarNav"
 					aria-controls="navbarNav" aria-expanded="false"
