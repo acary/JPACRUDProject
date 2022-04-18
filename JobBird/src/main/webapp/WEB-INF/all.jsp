@@ -15,14 +15,16 @@
 	</div>
 
 	<main class="container">
-		<h1>All Jobs</h1>
+		<h1>Jobs</h1>
 
-		<form action="getJob.do" method="GET">
-			<label for="jid" class="form-label">Job ID </label><input type="text" name="jid" class="form-control form-control-lg" /> 
-			<input type="submit" value="Search Jobs" class="btn btn-primary m-2"/>
-		</form>
+		<div class="btn-group" role="group"
+			aria-label="Search jobs">
+			<a href="all.do"><button type="button" class="btn btn-outline-primary">Show All</button></a>
+			<a href="searchId.do"><button type="button" class="btn btn-outline-primary">ID Search</button></a>
+			<a href="searchKeyword.do"><button type="button" class="btn btn-outline-primary">Keyword Search</button></a>
+		</div>
 
-		<br>
+		<br><br>
 
 		<table class="table table-striped">
 			<thead class="table-dark">

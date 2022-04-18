@@ -33,6 +33,15 @@ public class JobDaoJpaImpl implements JobDAO {
 	}
 	
 	@Override
+	public List<Job> findJobById(Integer jid) {
+		Integer jobId = Integer.valueOf(jid);
+		String jpql = "SELECT j FROM Job j WHERE j.id = :jid";
+		return em.createQuery(jpql, Job.class)
+				.setParameter("jid", jobId)
+				.getResultList();
+	}
+	
+	@Override
 	public List<Job> findJobByKeyword(String keyword) {
 		String jpql = "SELECT j FROM Job j WHERE j.name LIKE :keyword";
 		return em.createQuery(jpql, Job.class)

@@ -14,6 +14,8 @@ public interface JobDAO {
 	public int updateJob(Job job);
 
 	public boolean deleteJob(int jid);
-	
+
+	public List<Job> findJobById(Integer jid);
+
 	public List<Job> findJobByKeyword(String keyword);
 }

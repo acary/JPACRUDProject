@@ -14,17 +14,17 @@
 	</div>
 	<div class="container">
 		<h1>Update Job</h1>
-		<p>${job.id}</p>
+		<span class="badge rounded-pill bg-primary">ID ${job.id}</span>
 
 		<div>
 			<form action="updateJob.do" method="post">
 
-				<input type="hidden" name="jid" value="${job.id}">
-				<label for="name" class="form-label">Job Name</label> <input
-					type="text" name="name" class="form-control form-control-lg" />
+				<input type="hidden" name="jid" value="${job.id}"> <label
+					for="name" class="form-label">Job Name</label> <input type="text"
+					name="name" class="form-control form-control-lg" />
+				<div id="jobNameHelp" class="form-text">${job.name}</div>
 				<br> <input type="submit" class="btn btn-primary m-2"
 					value="Update Job" />
-					<div id="jobNameHelp" class="form-text">${job.name}</div>
 			</form>
 		</div>
 	</div>

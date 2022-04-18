@@ -17,7 +17,7 @@
 							role="button" data-bs-toggle="dropdown" aria-expanded="false">
 								Search </a>
 							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-								<li><a class="dropdown-item" href="all.do">Job By ID</a></li>
+								<li><a class="dropdown-item" href="searchId.do">Job By ID</a></li>
 								<li><a class="dropdown-item" href="searchKeyword.do">Job By
 										Keyword</a></li>
 							</ul></li>

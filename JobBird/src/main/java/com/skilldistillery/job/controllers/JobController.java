@@ -76,6 +76,19 @@ public class JobController {
 		}
 		return "redirect:all";
 	}
+	
+	@RequestMapping(path = "searchId.do", method = RequestMethod.GET)
+	public String getJobById() {
+		return "searchById";
+	}
+
+	@RequestMapping(path = "searchId.do", params = "jid", method = RequestMethod.POST)
+	public String searchJobById(String jid, Model model) {
+		Integer jobId = Integer.valueOf(jid);
+		List<Job> jobs = dao.findJobById(jobId);
+		model.addAttribute("jobs", jobs);
+		return "all";
+	}
 
 	@RequestMapping(path = "searchKeyword.do", method = RequestMethod.GET)
 	public String getJobByKeyword() {

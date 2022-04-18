@@ -23,10 +23,10 @@
 					height="500" loading="lazy">
 			</div>
 			<div class="col-lg-6">
-				<h1 class="display-5 fw-bold lh-1 mb-3">We have jobs</h1>
+				<h1 class="display-5 fw-bold lh-1 mb-3">Take flight with your next developer job</h1>
 				<p class="lead">Search our job postings, add new jobs and more!</p>
 				<div class="d-grid gap-2 d-md-flex justify-content-md-start">
-					<a href="all.do"><button type="button"
+					<a href="searchKeyword.do"><button type="button"
 							class="btn btn-primary btn-lg px-4 gap-3">Search</button></a> <a
 						href="createJob.do"><button type="button"
 							class="btn btn-outline-secondary btn-lg px-4">Add New</button></a>
