@@ -23,6 +23,14 @@
 					for="name" class="form-label">Job Name</label> <input type="text"
 					name="name" class="form-control form-control-lg" />
 				<div id="jobNameHelp" class="form-text">${job.name}</div>
+				
+				<label for="uri" class="form-label">URI</label> <input type="text"
+					name="uri" class="form-control form-control-lg" />
+				
+				<c:if test="${not empty job.uri}">
+					<div id="jobUriHelp" class="form-text">${job.uri}</div>
+				</c:if>
+				
 				<br> <input type="submit" class="btn btn-primary m-2"
 					value="Update Job" />
 			</form>
