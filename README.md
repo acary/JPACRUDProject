@@ -6,6 +6,9 @@ JobBird is a virtual mascot that helps developers find their next job.
 
 JobBird is an application made up of Spring Boot and Java Persistence Application (JPA) with a MySQL database.
 
+![JobBird](https://user-images.githubusercontent.com/1522180/163843926-d71ce976-e60f-4645-849a-4c092237fb5d.png)
+![Live Demo](http://andycarypro.com:8080/JobBird/)
+
 ### Functionality:
 - Show All Jobs
 - Search Jobs By ID
