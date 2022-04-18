@@ -8,9 +8,10 @@ JobBird is an application made up of Spring Boot and Java Persistence Applicatio
 
 ### Functionality:
 - Show All Jobs
-- Search Job By ID
-- Create: Add New Job
-- Read: Show Job By ID
+- Search Jobs By ID
+- Search Jobs By Keyword
+- Add New Job
+- Show Job Details
 - Update Job
 - Delete Job
 
@@ -24,18 +25,22 @@ JobBird is an application made up of Spring Boot and Java Persistence Applicatio
 ### Classes
 
 - `JobBirdApplication`: Application for job board
+- `JobController`: Defines request mappings
 - `JobDAO`: Defines database methods
 - `JobDaoJpaImpl`: Implements JobDAO
 - `Job`: Job object
+- `JobTest`: JUnit tests for entity mappings
 
 ### Lessons Learned
 
 - Java Persistence Query Language (JPQL) provides the ability to construct Structured Query Language (SQL) queries (including joins and binding variables) with Java and MySQL to provide robust interactivity embedded in a Java application.
+- Spring Boot integrates with JPA to connect web functionality with a database-backed application.
+- MySQL Workbench provides tools to forward engineer a database including sample data.
 - Coding to the interface which defines the database access methods helps separate concerns related to implementation.
 
 ### Technologies Used
 
-- Spring Boot 
+- Spring Boot
 - Java Persistence Application (JPA)
 - MySQL
 - JavaSE-1.8
