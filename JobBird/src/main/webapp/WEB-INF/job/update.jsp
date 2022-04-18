@@ -24,6 +24,7 @@
 					type="text" name="name" class="form-control form-control-lg" />
 				<br> <input type="submit" class="btn btn-primary m-2"
 					value="Update Job" />
+					<div id="jobNameHelp" class="form-text">${job.name}</div>
 			</form>
 		</div>
 	</div>
