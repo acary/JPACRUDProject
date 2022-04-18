@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 		<nav class="navbar navbar-expand-lg navbar-light"
-			style="background-color: #e3f2fd;">
+			style="background-color: #e0fbfc;">
 			<div class="container-fluid">
 				<a class="navbar-brand" href="/">JobBird</a>
 				<button class="navbar-toggler" type="button"
