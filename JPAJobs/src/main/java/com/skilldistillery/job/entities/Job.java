@@ -12,6 +12,7 @@ public class Job {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	private String uri;
 
 	public Job() {
 		super();
@@ -33,9 +34,17 @@ public class Job {
 		this.name = name;
 	}
 
+	public String getUri() {
+		return uri;
+	}
+
+	public void setUri(String uri) {
+		this.uri = uri;
+	}
+
 	@Override
 	public String toString() {
-		return "Job [id=" + id + ", name=" + name + ", hashCode()=" + hashCode() + "]";
+		return "Job [id=" + id + ", name=" + name + ", uri=" + uri + "]";
 	}
 
 }

@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
-
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,10 +16,18 @@
 		<h1>Job Details</h1>
 
 		<div>
+			<span class="badge rounded-pill bg-primary">ID ${job.id}</span>
 			<h5>${job.name}</h5>
-			<p>${job.id}</p>
-			<p><a href="updateJob.do?jid=${job.id}">Update</a></p>
-			<p><a href="deleteJob.do?jid=${job.id}">Delete</a></p>
+			
+			<br>
+			<c:if test="${not empty job.uri}">
+				<strong>URI:</strong> <a href="${job.uri}" target="_blank"><small>${job.uri}</small></a>
+			</c:if>
+			
+			<hr>
+			
+			<a href="updateJob.do?jid=${job.id}"><button type="button" class="btn btn-primary">Update</button></a>
+			<a href="deleteJob.do?jid=${job.id}"><button type="button" class="btn btn-danger">Delete</button></a>
 		</div>
 	</div>
 

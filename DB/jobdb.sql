@@ -23,6 +23,7 @@ DROP TABLE IF EXISTS `job` ;
 CREATE TABLE IF NOT EXISTS `job` (
   `id` INT NOT NULL AUTO_INCREMENT,
   `name` VARCHAR(100) NOT NULL,
+  `uri` VARCHAR(1000) NULL,
   PRIMARY KEY (`id`))
 ENGINE = InnoDB;
 
@@ -78,10 +79,10 @@ SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 -- -----------------------------------------------------
 START TRANSACTION;
 USE `jobdb`;
-INSERT INTO `job` (`id`, `name`) VALUES (1, 'Software Engineer');
-INSERT INTO `job` (`id`, `name`) VALUES (2, 'Blockchain Engineer');
-INSERT INTO `job` (`id`, `name`) VALUES (3, 'Java Engineer');
-INSERT INTO `job` (`id`, `name`) VALUES (4, 'Frontend Engineer');
+INSERT INTO `job` (`id`, `name`, `uri`) VALUES (1, 'Software Engineer', 'http://andycarypro.com');
+INSERT INTO `job` (`id`, `name`, `uri`) VALUES (2, 'Blockchain Engineer', NULL);
+INSERT INTO `job` (`id`, `name`, `uri`) VALUES (3, 'Java Engineer', NULL);
+INSERT INTO `job` (`id`, `name`, `uri`) VALUES (4, 'Frontend Engineer', NULL);
 
 COMMIT;
 
