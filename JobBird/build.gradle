@@ -1,10 +1,14 @@
-	plugins {
-	id 'org.springframework.boot' version '2.6.6'
+plugins {
+	id 'org.springframework.boot' version '2.7.0'
 	id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+	id "net.serenity-bdd.serenity-gradle-plugin" version "3.2.4"
 	id 'java'
 }
 
+defaultTasks 'clean', 'test', 'aggregate'
+
 apply plugin: 'war'
+
 war {
   enabled = true
   // Gradle will replace the variable baseName
@@ -17,21 +21,61 @@ group = 'com.skilldistillery.job'
 version = '0.0.1-SNAPSHOT'
 sourceCompatibility = '1.8'
 
+ext {
+	slf4jVersion = '1.7.7'
+	serenityCoreVersion = '3.2.5'
+	junitVersion = '5.8.2'
+	assertJVersion = '3.22.0'
+	logbackVersion = '1.2.11'
+	lombokVersion = '1.18.24'
+}
+
 repositories {
 	mavenCentral()
 }
 
+configurations {
+    cucumberRuntime {
+        extendsFrom testImplementation
+    }
+}
+
 dependencies {
-	implementation ('org.springframework.boot:spring-boot-starter-tomcat')
 	implementation project(':JPAJobs')
+	implementation ('org.springframework.boot:spring-boot-starter-tomcat')
 	implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
 	implementation 'org.springframework.boot:spring-boot-starter-web'
 	implementation 'javax.servlet:jstl:1.2'
     implementation 'org.apache.tomcat.embed:tomcat-embed-jasper'
-	runtimeOnly 'mysql:mysql-connector-java'
+    implementation 'org.seleniumhq.selenium:selenium-java:4.3.0'
+	runtimeOnly "mysql:mysql-connector-java"
 	testImplementation 'org.springframework.boot:spring-boot-starter-test'
+	testImplementation 'io.cucumber:cucumber-java:7.0.0'
+	testImplementation "net.serenity-bdd:serenity-core:${serenityCoreVersion}",
+			"net.serenity-bdd:serenity-junit5:${serenityCoreVersion}",
+			"org.junit.jupiter:junit-jupiter:${junitVersion}",
+			"org.assertj:assertj-core:${assertJVersion}",
+			"org.projectlombok:lombok:${lombokVersion}",
+			"ch.qos.logback:logback-classic:${logbackVersion}"
 }
 
 tasks.named('test') {
 	useJUnitPlatform()
+	testLogging.showStandardStreams = true
+	systemProperties System.getProperties()
 }
+
+task cucumber() {
+    dependsOn assemble, testClasses
+    doLast {
+        javaexec {
+            main = "io.cucumber.core.cli.Main"
+            classpath = configurations.cucumberRuntime + sourceSets.main.output + sourceSets.test.output
+            args = ['--plugin', 'pretty', '--glue', 'bdd', 'src/test/resources/features']
+        }
+    }
+}
+
+gradle.startParameter.continueOnFailure = true
+
+test.finalizedBy(aggregate)

@@ -8,7 +8,7 @@
     </provider>
 
 		<!-- List Entities Here -->
-		<class>com.skilldistillery.jpacrudproject.entities.Job</class>
+		<class>com.skilldistillery.job.entities.Job</class>
 
 		<properties>
 			<property name="javax.persistence.jdbc.url"
